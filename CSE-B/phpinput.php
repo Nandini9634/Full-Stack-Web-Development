@@ -1,4 +1,9 @@
 <?php
+include('config.php');//to include file
+//require('confi7g.php');//agr file incude nhi hui n file ki need h to it will stop d program include will not stop
+//require_once('config.php');
+ ?>
+<?php
 
 if (isset($_POST['btn'])){
   echo $_POST['id'].'<br>';
