@@ -4,16 +4,34 @@
 $id= $_GET['id'];
 echo "id to be updated is: ".$id;
  ?>
+ <?php
+ $sql="SELECT * FROM users WHERE id='$id'";
+ $result=mysqli_query($conn,$sql);
+ $data= $result->fetch_assoc();
+ $username=$data['username'];
+ $age=$data['age'];
+ $contact=$data['contact'];
+ $email=$data['email'];
+  ?>
 
  <?php
+if(isset($_POST['btn'])){
+  $username= $_POST['username'];
+  $age= $_POST['age'];
+  $contact= $_POST['contact'];
+  $email= $_POST['email'];
 
-$sql="SELECT * FROM users WHERE id='$id'";
-$result=mysqli_query($conn,$sql);
-$data= $result->fetch_assoc();
-$username=$data['username'];
-$age=$data['age'];
-$contact=$data['contact'];
-$email=$data['email'];
+  $sql="UPDATE users set name='$username', age='$age', conatct='$contact', email='$email' WHERE id=$id";
+  if(mysqli_query($conn,$sql)){
+    echo "data updated successfully..";
+  }
+  else {
+    echo "updation failed...try again";
+  }
+}
+else{
+echo "please click update button";
+}
   ?>
 
 
@@ -23,7 +41,7 @@ $email=$data['email'];
      <title>Input Form</title>
    </head>
    <body>
-     <form  action="edit.php" method="post">
+     <form  action="edit.php?id= <?php echo $id ?>" method="post">
        Name: <input type="text" name="username" placeholder="ENTER name" value=<?php echo "$username"; ?>><br>
        Age: <input type="text" name="age" value=<?php echo "$age"; ?> ><br>
        Contact: <input type="text" name="contact" value=<?php echo "$contact"; ?> ><br>
