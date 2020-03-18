@@ -25,14 +25,79 @@
 
       <div class="form">
         <label for="enterguess">Enter a guess: </label><input type="text" id="enterguess" class="enterguess">
-        <input type="submit" value="Submit guess" class="guessSubmit">
+        <input type="submit" value="Submit guess" class="guesssubmit">
+      </div>
+      <div class="result">
+        <p class="guesses"></p>
+        <p class="lastguess"></p>
+        <p class="lowhigh"></p>
       </div>
     </body>
-    
+
     <script>
+      var guesscount = 1;
+      var reset;
+      var randomno = Math.floor(Math.random() * 100) + 1
+      var enterguess = document.querySelector('.enterguess');
+      var guesssubmit = document.querySelector('.guesssubmit');
+      var previousguesses = document.querySelector('.previousguesses');
+      var lastguess = document.querySelector('.lastguess');
+      var lowhigh = document.querySelector('.lowhigh');
 
-      var randomNumber = Math.floor(Math.random() * 100) + 1;
 
+      function Checkguess() {
+        var userguess = Number(enterguess.value);
+        if(guesscount === 1) {
+          previousguesses.textContent = 'Previous guesses: ';
+        }
+        previousguesses.textContent += userguess + ' ';
+        if(userguess === randomno) {
+          lastguess.textContent = 'Congratulations! You got it right!';
+          lastguess.style.backgroundColor = 'green';
+          lowhigh.textContent = '';
+          Gameover();
+        } else if(guesscount === 10) {
+          lastguess.textContent = 'GAME OVER!';
+          lowhigh.textContent = '';
+          Gameover();
+        } else {
+          lastguess.textContent = 'Wrong!';
+          lastguess.style.backgroundColor = 'red';
+          if(userguess < randomno) {
+            lowhigh.textContent = 'Last guess was too low!';
+          } else if(userguess > randomno) {
+            lowhigh.textContent = 'Last guess was too high!';
+          }
+        }
+
+        guesscount++;
+        enterguess.value = '';
+        }
+        guesssubmit.addEventListener('click', Checkguess);
+
+        function Gameover() {
+          enterguess.disabled = true;
+          guesssubmit.disabled = true;
+          reset = document.createElement('button');
+          reset.textContent = 'Start new game';
+          document.body.appendChild(reset);
+          reset.addEventListener('click', resetGame);
+        }
+
+        function resetGame() {
+          guesscount = 1;
+          var resultreset = document.querySelectorAll('.result p');
+          var len= resultreset.length
+          for(var i = 0 ; i < len ; i++) {
+            resultreset[i].textContent = '';
+          }
+          reset.parentNode.removeChild(reset);
+          enterguess.disabled = false;
+          guesssubmit.disabled = false;
+          enterguess.value = '';
+          lastguess.style.backgroundColor = 'white';
+          randomno = Math.floor(Math.random() * 100) + 1;
+        }
 
     </script>
     </html>
