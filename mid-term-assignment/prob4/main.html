@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mid Term Assignment</title>
+    <style>
+      *{
+        font-family:helvetica,sans-serif;
+      }
+      h4{
+        position:absolute;
+        right:10px;
+        top:5px;
+      }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+      fetch('./parse.json').then(function (response){
+          return response.json();
+      }).then(function (data){
+        restprint(data)
+      });
+
+      var val="";
+      function restprint(data){
+       var record = data['body']['Recommendations'];
+       record.forEach(obj => {
+         val+= "<br>" + obj.RestaurantName + "<br>";
+        obj['menu'].forEach(menu => {
+
+            if(menu['type']=="sectionheader")
+            val+= "-->" + menu.name + "<br>";
+            menu['children'].forEach(child => {
+              var temp="-----";
+
+              if(child['type']=='item' && child['selected']==1)
+             { val+=temp + ">" + child['name'] + "<br>";
+              childprint(child['children'],temp);}
+              return;
+            });
+            return;
+        });
+        return;
+      });
+
+      function childprint(menu,temp){
+       menu.forEach(child => {
+          if(child['selected']==1)
+          {temp+=temp;
+            val+= temp + ">" + child['name'] + "<br>";
+           return childprint(child['children'],temp);
+           }
+           else if( child['selected']==0 ){
+          return;
+        }
+        });
+      }
+
+       document.getElementById("result").innerHTML=val;
+      }
+
+    </script>
+<div id="result">
+</div>
+
+</body>
+</html>
