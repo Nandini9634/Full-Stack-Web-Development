@@ -7,7 +7,7 @@
     <div>
 			<h1>Enter Details</h1>
 		</div>
-<form action=" " method="post">
+<form action=" addRecord.php " method="post">
     <div>
 				<label>Enrollment Number</label>
 				<input type="text" name="enroll" placeholder="GE-172012584" required="required">
