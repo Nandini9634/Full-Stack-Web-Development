@@ -14,7 +14,7 @@ if (isset($_POST['submit'])){
 
   if (mysqli_query($conn, $insert))
     {
-      header("location: ?msg=successfully_registered");
+      header("location: details.php ?msg=successfully_registered");
     }
     else
     {
