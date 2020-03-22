@@ -28,7 +28,16 @@ $result = mysqli_query($conn, $sql);
    <?php
    while($data = $result->fetch_assoc()){ ?>
    <tr>
-      
+   <td><?php echo $data['id'];?></td>
+   <td><?php echo $data["enroll"] ?></td>
+   <td><?php echo $data["name"] ?></td>
+   <td><?php echo $data["age"] ?></td>
+   <td><?php echo $data["course"] ?></td>
+   <td><?php echo $data["branch"] ?></td>
+   <td><?php echo $data["contact"] ?></td>
+   <td><?php echo $data["email_id"] ?></td>
+   <td> <a href="edit.php ?id=<?php echo $data['id'];?>">Edit</a> </td>
+   <td> <a href="delete.php ?id=<?php echo $data['id'];?>">Delete</a></td>
    </tr>
    <?php } ?>
    </tbody>
