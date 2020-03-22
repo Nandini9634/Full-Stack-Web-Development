@@ -39,14 +39,12 @@ else{
 
 <html>
   <head>
-  <title>Input Form</title>
+  <title>EDIT</title>
   </head>
   <body>
     <div>
-    <div>
-			<h1>Enter Details</h1>
-		</div>
-<form action=" addRecord.php " method="post">
+
+<form action=" edit.php " method="post">
     <div>
 				<label>Enrollment Number</label>
 				<input type="text" name="enroll" placeholder="GE-172012584" required="required">
