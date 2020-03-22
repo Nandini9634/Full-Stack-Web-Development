@@ -25,8 +25,14 @@ if(isset($_POST['submit'])){
   $contact=$_POST["contact"];
   $email_id=$_POST["email_id"];
   $sql = "UPDATE `add_details` SET enroll='$enroll', name='$name', age='$age', course='$course', branch='$branch', contact='$contact', email_id='$email_id'  WHERE id='$id'";
+  if(mysqli_query($conn, $sql)){
+        echo "Data updated successfully...";
+    }
+    else{
+        echo "Updation Failed...Try Again";
+    }
 }
 else{
-  
+     echo "Please click update button";
 }
 ?>
