@@ -38,45 +38,54 @@ else{
 ?>
 
 <html>
-  <head>
-  <title>EDIT</title>
-  </head>
-  <body>
-    <div>
+<head>
+	<title>Edit / Delete </title>
+</head>
+<body>
+	<div>
+		<div>
+			<h1>Edit / Delete </h1>
+		</div>
 
-<form action=" edit.php " method="post">
-    <div>
-				<label>Enrollment Number</label>
-				<input type="text" name="enroll" placeholder="GE-172012584" required="required">
-			</div>
-			<div>
-				<label>Name</label>
-				<input type="text" name="name" placeholder="Nandini Agarwal" required="required">
-			</div>
-			<div>
-				<label>Age</label>
-				<input type="number" name="age" placeholder="20" required="required">
-			</div>
-			<div>
-				<label>Course</label>
-				<input type="text" name="course" placeholder="B.Tech." required="required">
-			</div>
-			<div>
-				<label>Branch</label>
-				<input type="text" name="branch" placeholder="Computer Science" required="required">
-			</div>
-			<div>
-				<label>Contact</label>
-				<input type="number" name="contact" placeholder="9634889767" required="required">
-			</div>
-			<div>
-				<label>Email Id</label>
-				<input type="email_id" name="email_id" placeholder="nandiniagarwal9634@gmail.com" required="required">
-			</div>
-			<div>
-				<button type="submit" name="submit">Submit</button>
-			</div>
-</form>
-</div>
-  </body>
-</html>
+		<form action="edit.php?id=<?php echo $id ?>" method="post">
+      			<div>
+      				<label>Enrollment Number</label>
+      				<input type="text" name="enroll" value="<?php echo $enroll; ?>">
+      			</div>
+
+      			<div>
+      				<label>Name</label>
+      				<input type="text" name="name" value="<?php echo $name; ?>">
+      			</div>
+
+      			<div>
+      				<label>Age</label>
+      				<input type="number" name="age" value="<?php echo $age; ?>">
+      			</div>
+
+      			<div>
+      				<label>Course</label>
+      				<input type="text" name="course" value="<?php echo $course; ?>">
+      			</div>
+
+      			<div>
+      				<label>Branch</label>
+      				<input type="text" name="branch" value="<?php echo $branch; ?>">
+      			</div>
+
+      			<div>
+      				<label>Contact</label>
+      				<input type="number" name="contact" value="<?php echo $contact; ?>">
+      			</div>
+
+      			<div>
+      				<label>Email Id</label>
+      				<input type="email_id" name="email_id" value="<?php echo $email_id; ?>">
+      			</div>
+      			<div>
+      				<input type="submit" name='submit' value="submit">
+      			</div>
+      		</form>
+      	</div>
+      </body>
+      </html>
