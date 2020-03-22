@@ -15,3 +15,18 @@ include('config.php');
     $contact=$data["contact"];
     $email_id=$data["email_id"];
 ?>
+<?php
+if(isset($_POST['submit'])){
+  $enroll=$_POST["enroll"];
+  $name=$_POST["name"];
+  $age=$_POST["age"];
+  $course=$_POST["course"];
+  $branch=$_POST["branch"];
+  $contact=$_POST["contact"];
+  $email_id=$_POST["email_id"];
+  $sql = "UPDATE `add_details` SET enroll='$enroll', name='$name', age='$age', course='$course', branch='$branch', contact='$contact', email_id='$email_id'  WHERE id='$id'";
+}
+else{
+  
+}
+?>
