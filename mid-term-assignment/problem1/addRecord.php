@@ -2,7 +2,7 @@
 include('config.php');
 
 <?php
-
+if (isset($_POST['submit'])){
   $enroll=$_POST["enroll"];
   $name=$_POST["name"];
   $age=$_POST["age"];
@@ -20,6 +20,9 @@ include('config.php');
     {
       echo "Error: " . $insert . "<br>" . mysqli_error($conn);
     }
-
+  }
+    else{
+      echo "Welcome!!!";
+  }
 
 ?>
