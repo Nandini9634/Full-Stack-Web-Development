@@ -9,6 +9,8 @@
 <?php
 $sql = "SELECT * FROM `add_details`";
 $result = mysqli_query($conn, $sql);
+if($result->num_rows > 0){
+?>
   <table border="1">
     <thead>
         <tr>
@@ -41,6 +43,7 @@ $result = mysqli_query($conn, $sql);
    </tr>
    <?php } ?>
    </tbody>
+   <?php } ?>
     </table>
 </body>
 </html>
