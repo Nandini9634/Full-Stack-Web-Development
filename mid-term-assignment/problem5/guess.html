@@ -26,7 +26,38 @@
         var lastguess = document.querySelector('.lastguess');
         var lowhigh = document.querySelector('.lowhigh');
 
-        
+        function Checkguess() {
+          var userguess = Number(enterguess.value);
+          if(guesscount === 1) {
+            previousguesses.textContent = 'Previous guesses: ';
+          }
+          previousguesses.textContent += userguess + ' ';
+          if(userguess === randomno) {
+            lastguess.textContent = 'Congratulations! You got it right!';
+            lastguess.style.backgroundColor = 'green';
+            lowhigh.textContent = '';
+            Gameover();
+          } else if(guesscount === 10) {
+            lastguess.textContent = 'GAME OVER!';
+            lowhigh.textContent = '';
+            Gameover();
+          } else {
+            lastguess.textContent = 'Wrong!';
+            lastguess.style.backgroundColor = 'red';
+            if(userguess < randomno) {
+              lowhigh.textContent = 'Last guess was too low!';
+            } else if(userguess > randomno) {
+              lowhigh.textContent = 'Last guess was too high!';
+            }
+          }
+
+
+          function Gameover() {
+
+          }
+
+
+
       </script>
   </body>
 </html>
