@@ -31,8 +31,18 @@ function printusers(user_data)
           }
        }
 }
+var min_no=Math.min(...mini),max_no=Math.max(...mini);
+var len=arr.length;
+       for(i=0;i<len;i++)
+       {
+           if(arr[i]==min_no)
+               min_task+= " " + (i+1);
+           else if(arr[i]==max_no)
+               max_task+= " "  + (i+1);
+       }
 var temp;
-document.getElementById("result").innerHTML =  temp;
+document.getElementById("result").innerHTML =  min_task;
+document.getElementById("result").innerHTML =  max_task;
           }
      </script>
  <div id="result">
