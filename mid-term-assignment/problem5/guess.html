@@ -50,7 +50,10 @@
               lowhigh.textContent = 'Last guess was too high!';
             }
           }
-
+          guesscount++;
+          enterguess.value = '';
+          }
+          guesssubmit.addEventListener('click', Checkguess);
 
           function Gameover() {
 
