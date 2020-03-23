@@ -56,7 +56,12 @@
           guesssubmit.addEventListener('click', Checkguess);
 
           function Gameover() {
-
+            enterguess.disabled = true;
+            guesssubmit.disabled = true;
+            reset = document.createElement('button');
+            reset.textContent = 'Start new game';
+            document.body.appendChild(reset);
+            reset.addEventListener('click', resetGame);
           }
 
 
