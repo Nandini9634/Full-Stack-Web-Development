@@ -19,7 +19,18 @@
         alert("String not found! kindly enter the string again.");
          return;
      }
-
+     var title,result="";
+     word=RegExp(word,'g');
+      for(i=0;i<data.length;i++)
+      {
+          title=data[i]['title'].concat(" " + data[i]['body']);
+          var val = (title.match(word) || [] ).length ;
+          if(val!=0)
+          {
+            val= data[i]['userId'] + " " + data[i]['id'] + " " + val;
+            result+= val + "<br>";
+          }
+      }
 
   document.getElementById("result").innerHTML= "<br>" + result;
 }
