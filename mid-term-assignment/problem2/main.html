@@ -6,16 +6,30 @@
   </head>
   <body>
     <script type="text/javascript">
-      fetch('./main.json');
-      var complete_task=0,incomplete_task=0
-      if(completed==true)
-        complete_task++;
-      else {
-        incomplete_task++;
-      }
-function printusers()
-{
+      fetch('./main.json').then(function (output){
+            return output.json();
+        }).then(function (user_data){
+          printusers(user_data)
+        });
 
+function printusers(user_data)
+{
+  var user=1,complete_task=0,incomplete_task=0,arr = [],min_task="The id's of users who have completed minimum tasks are: ",max_task="The id's of users who have completed maximum tasks are: ";
+  var len=user_data.length;
+  for(var i=0;i<len;i++)
+       {
+          if(i==199)
+          {
+            arr.push(complete_task);
+            break;
+          }
+          if(user_data[i]['userId']==user)
+          { if(user_data[i]['completed'])
+             complete_task++;
+             else
+             incomplete_task++;
+          }
+       }
 }
 var temp;
 document.getElementById("result").innerHTML =  temp;
