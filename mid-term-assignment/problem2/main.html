@@ -1,62 +1,60 @@
-<<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Problem2</title>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2</title>
+
+</head>
+<body>
     <script type="text/javascript">
-      fetch('./main.json').then(function (response){
+        fetch('./parse.json').then(function (response){
             return response.json();
         }).then(function (user_data){
           printusers(user_data)
         });
 
-function printusers(user_data)
-{
-  var user=1,complete_task=0,incomplete_task=0,arr = [],min_task="The id's of users who have completed minimum tasks are: ",max_task="The id's of users who have completed maximum tasks are: ";
-  var len=user_data.length;
-  for(var i=0;i<len;i++)
-       {
-         if(i==199)
-         {
-           arr.push(complete_task);
-           break;
-         }
+        function printusers(user_data)
+        { var user=1,complete_task=0,incomplete_task=0,arr = [],min_task="The id's of users who have completed minimum tasks are: ",max_task="The id's of users who have completed maximum tasks are: ";
+          var len=user_data.length;
+         for(var i=0;i<len;i++)
+        {
+            if(i==199)
+            {
+              arr.push(complete_task);
+              break;
+           }
+            if(user_data[i]['userId']==user)
+            { if(user_data[i]['completed'])
+              complete_task++;
+              else
+              incomplete_task++;
+            }
 
-          if(user_data[i]['userId']==user)
-          { if(user_data[i]['completed'])
-             complete_task++;
-             else
-             incomplete_task++;
-          }
 
-          if(user_data[i+1]['userId']==(user+1) )
-          {   arr.push(complete_task);
+            if(user_data[i+1]['userId']==(user+1) )
+           {   arr.push(complete_task);
                user++;
                complete_task=incomplete_task=0;
-          }
-       }
-}
-console.log(mini);
-var min_no=Math.min(...arr),max_no=Math.max(...arr);
-var len=arr.length;
-       for(i=0;i<len;i++)
-       {
-           if(arr[i]==min_no)
-               min_task+= " " + (i+1);
-           else if(arr[i]==max_no)
-               max_task+= " "  + (i+1);
-       }
-
-document.getElementById("result").innerHTML =  min_task+"<br>"+max_task;
-//document.getElementById("result").innerHTML =  max_task;
-          }
-     </script>
- <div id="result">
-
- </div>
+           }
+        }
 
 
-  </body>
+        var min_no=Math.min(...arr),max_no=Math.max(...arr);
+        var len1=arr.length;
+        for(i=0;i<len1;i++)
+        {
+            if(arr[i]==min_no)
+                min_task+= " " + (i+1);
+            else if(arr[i]==max_no)
+                max_task+= " "  + (i+1);
+        }
+
+        document.getElementById("result").innerHTML =  min_task + "<br>" + max_task;
+           }
+      </script>
+  <div id="result">
+  </div>
+
+</body>
 </html>
