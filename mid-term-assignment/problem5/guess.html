@@ -63,7 +63,20 @@
             document.body.appendChild(reset);
             reset.addEventListener('click', resetGame);
           }
-
+          function resetGame() {
+            guesscount = 1;
+            var resultreset = document.querySelectorAll('.result p');
+            var len= resultreset.length
+            for(var i = 0 ; i < len ; i++) {
+              resultreset[i].textContent = '';
+            }
+            reset.parentNode.removeChild(reset);
+            enterguess.disabled = false;
+            guesssubmit.disabled = false;
+            enterguess.value = '';
+            lastguess.style.backgroundColor = 'white';
+            randomno = Math.floor(Math.random() * 100) + 1;
+          }
 
 
       </script>
