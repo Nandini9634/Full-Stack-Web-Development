@@ -5,6 +5,12 @@
     <title>Problem 4</title>
   </head>
   <body>
-
+    <script type="text/javascript">
+      fetch('./parse.json').then(function (response){
+          return response.json();
+      }).then(function (user_data){
+        restprint(user_data)
+      });
+    </script>
   </body>
 </html>
