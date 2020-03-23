@@ -11,7 +11,6 @@
       }).then(function (user_data){
         restprint(user_data)
       });
-
       var val="";
       function restprint(data){
        var record = data['body']['Recommendations'];
@@ -23,7 +22,6 @@
             val+= "-->" + menu.name + "<br>";
       menu['children'].forEach(child => {
         var temp="-----";
-
         if(child['type']=='item' && child['selected']==1)
        { val+=temp + ">" + child['name'] + "<br>";
         childprint(child['children'],temp);}
@@ -33,16 +31,20 @@
   });
   return;
 });
-
-
-      function childprint(menu,temp){
-
-
-      }
-
-      var value;
-      document.getElementById("result").innerHTML=value
-    }
+function childprint(menu,temp){
+ menu.forEach(child => {
+    if(child['selected']==1)
+    {temp+=temp;
+      val+= temp + ">" + child['name'] + "<br>";
+     return childprint(child['children'],temp);
+     }
+     else if( child['selected']==0 ){
+    return;
+  }
+  });
+}
+ document.getElementById("result").innerHTML=val;
+}
     </script>
     <div id="result">
     </div>
