@@ -6,8 +6,8 @@
   </head>
   <body>
     <script type="text/javascript">
-      fetch('./main.json').then(function (result){
-            return output.json();
+      fetch('./main.json').then(function (response){
+            return response.json();
         }).then(function (user_data){
           printusers(user_data)
         });
@@ -18,24 +18,27 @@ function printusers(user_data)
   var len=user_data.length;
   for(var i=0;i<len;i++)
        {
-          if(i==199)
-          {
-            arr.push(complete_task);
-            break;
-          }
+         if(i==199)
+         {
+           arr.push(complete_task);
+           break;
+         }
+
           if(user_data[i]['userId']==user)
           { if(user_data[i]['completed'])
              complete_task++;
              else
              incomplete_task++;
           }
-          if(data[i+1]['userId']==(user+1) )
+
+          if(user_data[i+1]['userId']==(user+1) )
           {   arr.push(complete_task);
                user++;
                complete_task=incomplete_task=0;
           }
        }
 }
+console.log(mini);
 var min_no=Math.min(...arr),max_no=Math.max(...arr);
 var len=arr.length;
        for(i=0;i<len;i++)
@@ -45,7 +48,7 @@ var len=arr.length;
            else if(arr[i]==max_no)
                max_task+= " "  + (i+1);
        }
-var temp;
+
 document.getElementById("result").innerHTML =  min_task+"<br>"+max_task;
 //document.getElementById("result").innerHTML =  max_task;
           }
