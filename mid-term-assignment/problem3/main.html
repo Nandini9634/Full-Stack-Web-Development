@@ -11,6 +11,13 @@
     .then(response => response.json())
     .then(data => parsedata(data))
     }
+
+    var word=document.getElementById("word").value;
+    if(!word)
+    {
+       alert("String not found! kindly enter the string again.");
+        return;
+    }
     </script>
   </body>
 </html>
