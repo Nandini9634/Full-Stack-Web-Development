@@ -12,12 +12,17 @@
     .then(data => parsedata(data))
     }
 
-    var word=document.getElementById("word").value;
-    if(!word)
-    {
-       alert("String not found! kindly enter the string again.");
-        return;
-    }
+    function parsedata(data){
+     var word=document.getElementById("word").value;
+     if(!word)
+     {
+        alert("String not found! kindly enter the string again.");
+         return;
+     }
+     
+
+  document.getElementById("result").innerHTML= "<br>" + result;
+}
     </script>
   </body>
 </html>
