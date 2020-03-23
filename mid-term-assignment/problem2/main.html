@@ -6,7 +6,7 @@
   </head>
   <body>
     <script type="text/javascript">
-      fetch('./main.json').then(function (output){
+      fetch('./main.json').then(function (result){
             return output.json();
         }).then(function (user_data){
           printusers(user_data)
