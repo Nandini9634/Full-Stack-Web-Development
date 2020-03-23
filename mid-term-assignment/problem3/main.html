@@ -5,6 +5,12 @@
     <title>Problem 3</title>
   </head>
   <body>
-
+    <script type="text/javascript">
+    function takeinput(){
+    fetch('./parse.json')
+    .then(response => response.json())
+    .then(data => parsedata(data))
+    }
+    </script>
   </body>
 </html>
