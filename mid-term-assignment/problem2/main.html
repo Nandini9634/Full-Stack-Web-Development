@@ -29,6 +29,11 @@ function printusers(user_data)
              else
              incomplete_task++;
           }
+          if(data[i+1]['userId']==(user+1) )
+          {   arr.push(complete_task);
+               user++;
+               complete_task=incomplete_task=0;
+          }
        }
 }
 var min_no=Math.min(...arr),max_no=Math.max(...arr);
