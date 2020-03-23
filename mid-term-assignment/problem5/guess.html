@@ -11,6 +11,11 @@
         <label for="enterguess">Enter a guess: </label><input type="text" id="enterguess" class="enterguess">
         <input type="submit" value="Submit guess" class="guesssubmit">
       </div>
+      <div class="result">
+        <p class="previousguesses"></p>
+        <p class="lastguess"></p>
+        <p class="lowhigh"></p>
+      </div>
       <script>
         var guesscount = 1;
         var randomno = Math.floor(Math.random() * 100) + 1
