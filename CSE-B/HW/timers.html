@@ -35,11 +35,13 @@
     <script type="text/javascript">
         var timeOutID;
         function delayedAlert(){
-            timeOutID = setTimeout(alert, 5*1000, "Hello Students!");
+            //timeOutID = setTimeout(alert, 5*1000, "Hello Students!");
+            timeOutID = setInterval(alert, 5*1000, "Hello Students!");
         }
 
         function clearAlert(){
-            clearTimeout(timeOutID);
+            //clearTimeout(timeOutID);
+            clearInterval(timeOutID);
         }
     </script>
 </body>
