@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>bulb on off</title>
+    <style>
+    </style>
+</head>
+<body>
+
+
+    <img src="offbulb.jpg" id='img' width="200px" height="300px">
+    <input type="button" value="off" id="toggle">
+    <script type="text/javascript">
+
+document.getElementById('toggle').onclick = function(){
+
+        onoff=document.getElementById('toggle').value;
+        if(onoff=='on')
+        {
+          document.getElementById('img').src="glowbulb.jpg";
+          document.getElementById('toggle').value='off';
+        }
+        else {
+          document.getElementById('img').src="offbulb.jpg";
+          document.getElementById('toggle').value='on';
+        }
+    }
+
+    </script>
+</body>
+</html>
