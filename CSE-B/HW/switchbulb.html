@@ -7,7 +7,7 @@
 <body>
 
 
-    <img src="offbulb.jpg" id='img' width="200px" height="300px">
+    <img src="offbulb.jpg" id='img' width="270px" height="300px">
     <input type="button" value="off" id="toggle">
     <script type="text/javascript">
 
@@ -17,11 +17,17 @@ document.getElementById('toggle').onclick = function(){
         if(onoff=='on')
         {
           document.getElementById('img').src="glowbulb.jpg";
+          document.getElementById("img").width = "300";
+          document.getElementById("img").height = "300";
           document.getElementById('toggle').value='off';
+
         }
         else {
           document.getElementById('img').src="offbulb.jpg";
+          document.getElementById("img").width = "270";
+          document.getElementById("img").height = "300";
           document.getElementById('toggle').value='on';
+
         }
     }
 
