@@ -28,12 +28,25 @@
 <body>
     <div>
         <p><strong>JavaScript Timers</strong></p>
-        <button onclick="delayedAlert();">Create Event</button>
-        <p></p>
-        <button onclick="clearAlert();">Cancel Event</button>
+        <button onclick="delayedAlert();">Print Students</button>
     </div>
     <script type="text/javascript">
 
+      function delayedAlert(){
+        var i=0;
+        var delay=1;
+        var myfunc = setInterval(function(){
+
+        i = i + delay;
+        console.log('Hello Students ' + delay );
+        timeOutID = setTimeout(alert, 1000, "Hello Students "+ delay);
+        if(i==5) {
+            clearInterval(myfunc);
+            console.log('Done!' );
+            timeOutID = setTimeout(alert, 1000, "Done!");
+        }
+      }, 1000, "Hello Students ");
+    }
     </script>
 </body>
 </html>
