@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>JS Timers</title>
+    <style>
+        div{
+            margin-top: 20%;
+            margin-left: 45%;
+        }
+        p{
+            padding-left: 30px;
+        }
+        button{
+            width: 200px;
+            height: 50px;
+            background-color: #008CBA;
+            font-family: monospace;
+            font-size: 15px;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        button:hover{
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p><strong>JavaScript Timers</strong></p>
+        <button onclick="delayedAlert();">Print Students</button>
+    </div>
+    <script type="text/javascript">
+
+      function delayedAlert(){
+        var delay=1;
+        while(delay <= 5){
+          var i=0;
+          var myfunc = setInterval(function(){
+
+          i = i + delay;
+          console.log('Hello Students ' + delay );
+          timeOutID = setTimeout(alert, delay*1000, "Hello Students "+ delay);
+          if(i==5) {
+            delay=delay+1;
+              clearInterval(myfunc);
+          }
+        }, delay*1000, "Hello Students ");
+        if(delay==6)
+        {
+          console.log('Done!' );
+          timeOutID = setTimeout(alert, 1000, "Done!");
+        }
+        }
+    }
+    </script>
+</body>
+</html>
